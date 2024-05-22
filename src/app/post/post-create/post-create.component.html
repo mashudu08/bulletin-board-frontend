@@ -1,0 +1,25 @@
+<form (submit)="onAddPost(addPost)" #addPost="ngForm">
+    <input type="text" 
+    ngModel name="author" 
+    placeholder="Enter author name"
+    required 
+    minlength="1"
+    pattern="^[a-zA-Z0-9\s_-]+$"
+    #author="ngModel"/>
+    <input type="text" 
+    ngModel name="title" 
+    placeholder="Enter post title"
+    required 
+    minlength="10"
+    pattern="^[a-zA-Z0-9\s_-]+$"
+    #title="ngModel"/>
+    <input type="text" 
+    ngModel name="content" 
+    placeholder="Enter post content"
+    required 
+    minlength="10"
+    pattern="^[a-zA-Z0-9\s_-]+$"
+    #content="ngModel"/>
+
+    <button type="submit">Add Post</button>
+</form>

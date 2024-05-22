@@ -1,0 +1,19 @@
+<form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+    <input type="text" 
+    ngModel name="enteredusername" 
+    placeholder="Username"
+    required 
+    minlength="1"
+    pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+    #enteredusername="ngModel"/>
+    <input type="password" 
+    ngModel name="enteredpassword" 
+    placeholder="Password"
+    required 
+    minlength="1"
+    pattern="^[(a-zA-Z0-9@*#]{8,15})$"
+    #enteredpassword="ngModel"/>
+
+    <button type="submit">{{option}}</button>
+</form>
+

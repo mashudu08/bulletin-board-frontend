@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PostServiceService } from '../post-service.service';
 
@@ -7,9 +7,9 @@ import { PostServiceService } from '../post-service.service';
   templateUrl: './post-display.component.html',
   styleUrl: './post-display.component.css'
 })
-export class PostDisplayComponent implements OnInit{
+export class PostDisplayComponent implements OnInit, OnDestroy{
 
-  posts:{_id:string,author:string,title:string,content:string}[] = [];
+  posts:{_id: string, author: string, title: string, content:string}[] = [];
 
   constructor(public postservice: PostServiceService){}
   private postsubscription!: Subscription;
@@ -17,9 +17,11 @@ export class PostDisplayComponent implements OnInit{
   ngOnInit(){
     this.postservice.getpost_service();
     this.postsubscription = this.postservice.getUpdateListener()
-    .subscribe((posts:{_id:string,author:string,title:string,content:string}[]) =>
+    .subscribe((posts:{_id: string, author: string, title: string, content: string}[]) =>
     {
       this.posts = posts;
+    }, error => {
+      console.error('Error fetching posts:', error);
     });
   }
 
@@ -27,7 +29,7 @@ export class PostDisplayComponent implements OnInit{
     this.postsubscription.unsubscribe();
   }
 
-  onDelete(postid:string){
-    this.postservice.deletepost_service(postid)
+  onDelete(postId:string){
+    this.postservice.deletepost_service(postId)
   }
 }

@@ -1,11 +1,19 @@
-<form (submit)="onLogin(loginForm)" #loginForm="ngForm">
-    <input type="text" 
+<form (submit)="onLogin(loginForm)" #loginForm="ngForm" class="form-container">
+    <div class="header">
+        <h1>Departmental Digest</h1>
+    </div>
+    <h2>Create your account</h2>
+    <p>Have an account? <a href="#">Log in now</a></p>
+
+    <label for="email">Email</label>
+    <input type="email" 
     ngModel name="enteredusername" 
     placeholder="Username"
     required 
     minlength="1"
     pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
     #enteredusername="ngModel"/>
+    <label for="password">Password</label>
     <input type="password" 
     ngModel name="enteredpassword" 
     placeholder="Password"

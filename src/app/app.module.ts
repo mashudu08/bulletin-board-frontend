@@ -13,6 +13,7 @@ import { PostServiceService } from './post/post-service.service';
 import { ErrorComponent } from './error/error/error.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatDialogActions } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MatDialogActions } from '@angular/material/dialog';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatDialogActions
+    MatDialogActions,
+    MatExpansionModule
 
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}, PostServiceService, provideAnimationsAsync()],

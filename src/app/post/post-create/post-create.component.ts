@@ -5,7 +5,7 @@ import {PostServiceService} from '../post-service.service';
 @Component({
   selector: 'app-post-create',
   templateUrl: './post-create.component.html',
-  styleUrl: './post-create.component.css'
+  styleUrls: ['./post-create.component.css']
 })
 export class PostCreateComponent implements OnInit{
   constructor(public postservice: PostServiceService){}

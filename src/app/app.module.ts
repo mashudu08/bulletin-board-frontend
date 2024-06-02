@@ -9,20 +9,28 @@ import { PostCreateComponent } from './post/post-create/post-create.component';
 import { PostDisplayComponent } from './post/post-display/post-display.component';
 import { LoginComponent } from './auth/login/login/login.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { PostServiceService } from './post/post-service.service';
+import { ErrorComponent } from './error/error/error.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatDialogActions } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostCreateComponent,
     PostDisplayComponent,
-    LoginComponent
+    LoginComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    MatDialogActions
+
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}, PostServiceService, provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

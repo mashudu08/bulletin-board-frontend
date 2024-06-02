@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   constructor(public authservice: AuthServiceService, private router: Router) {}
 
 
-  //"qick & dirty" method LMAO
+  //"quick & dirty" method LMAO
   option: string = this.router.url;
 
   ngOnInit(): void {}

@@ -14,6 +14,7 @@ import { ErrorComponent } from './error/error/error.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatDialogActions } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { RegisterComponent } from './auth/register/register/register.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     PostCreateComponent,
     PostDisplayComponent,
     LoginComponent,
-    ErrorComponent
+    ErrorComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
